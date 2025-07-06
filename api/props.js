@@ -1,7 +1,6 @@
 // api/props.js
 
-export default (req, res) => {
-  // Configurar encabezados CORS
+module.exports = (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -30,7 +29,7 @@ export default (req, res) => {
         direccion: 'Av. Siempre Viva 742',
         imagen: 'https://via.placeholder.com/300',
         descripcion: 'Depto moderno de 2 ambientes.',
-      }
+      },
     ];
 
     res.status(200).json(propiedades);
