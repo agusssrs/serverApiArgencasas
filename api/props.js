@@ -1,15 +1,18 @@
 // api/props.js
 
-module.exports = (req, res) => {
+export default async (req, res) => {
+  // Encabezados CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
+  // Manejo de preflight (OPTIONS)
   if (req.method === 'OPTIONS') {
     res.status(200).end();
     return;
   }
 
+  // Manejo del método GET
   if (req.method === 'GET') {
     const propiedades = [
       {
@@ -22,14 +25,14 @@ module.exports = (req, res) => {
         descripcion: 'Linda casa con patio y cochera.',
       },
       {
-        id: 2073,
+        id: 2,
         tipo: 'Departamento',
         operacion: 'Alquiler',
         precio: 'ARS 250000',
         direccion: 'Av. Siempre Viva 742',
         imagen: 'https://via.placeholder.com/300',
         descripcion: 'Depto moderno de 2 ambientes.',
-      },
+      }
     ];
 
     res.status(200).json(propiedades);
