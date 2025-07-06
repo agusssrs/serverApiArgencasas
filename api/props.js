@@ -16,20 +16,14 @@ module.exports = async (req, res) => {
   try {
     const apiUrl = 'https://api.argencasas.com/props?api_key=6b8d4ba4dfdeadbe7ffe3ba8e40cb162';
 
-    const response = await fetch(apiUrl);
-    const data = await response.json();
+const response = await fetch(apiUrl);
+const data = await response.json();
 
-    const propiedades = data.map(p => ({
-      id: p.id,
-      tipo: p.type,
-      operacion: p.operation,
-      precio: `${p.currency} ${p.price}`,
-      direccion: `${p.street} ${p.number}`,
-      imagen: p.images?.[0] || '',
-      descripcion: p.description,
-    }));
+console.log('RESPUESTA API ARGENCASAS:', data); // 👈 esto
 
-    return res.status(200).json(propiedades);
+// Intentá devolverlo directo para ver qué es
+return res.status(200).json(data);
+
 
   } catch (error) {
     console.error('ERROR REAL:', error);  // 🔍 mostrará en logs lo que realmente pasa
