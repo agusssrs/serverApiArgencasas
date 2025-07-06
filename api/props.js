@@ -1,6 +1,6 @@
 // api/props.js
 
-module.exports = (req, res) => {
+export default (req, res) => {
   // Configurar encabezados CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
