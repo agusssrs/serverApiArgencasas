@@ -1,7 +1,7 @@
-// api/props.js (Node.js plano para Vercel)
+// api/props.js
 
-module.exports = async (req, res) => {
-  // Encabezados CORS
+module.exports = (req, res) => {
+  // Configurar encabezados CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
