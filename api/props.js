@@ -1,4 +1,4 @@
-// api/props.js
+// api/props.js (Node.js plano para Vercel)
 
 module.exports = async (req, res) => {
   // Encabezados CORS
@@ -6,13 +6,11 @@ module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  // Manejo de preflight (OPTIONS)
   if (req.method === 'OPTIONS') {
     res.status(200).end();
     return;
   }
 
-  // Manejo del método GET
   if (req.method === 'GET') {
     const propiedades = [
       {
@@ -25,7 +23,7 @@ module.exports = async (req, res) => {
         descripcion: 'Linda casa con patio y cochera.',
       },
       {
-        id: 2,
+        id: 2073,
         tipo: 'Departamento',
         operacion: 'Alquiler',
         precio: 'ARS 250000',
