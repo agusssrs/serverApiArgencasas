@@ -1,8 +1,7 @@
-// api/props.js
-
 const fetch = require('node-fetch');
 
 module.exports = async (req, res) => {
+  // CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -21,8 +20,7 @@ module.exports = async (req, res) => {
     const response = await fetch(apiUrl);
     const data = await response.json();
 
-    // Transformamos las propiedades al formato que espera el frontend
-    const propiedades = data.map(p => ({
+    const propiedades = data.map((p) => ({
       id: p.id,
       tipo: p.type,
       operacion: p.operation,
@@ -33,9 +31,8 @@ module.exports = async (req, res) => {
     }));
 
     return res.status(200).json(propiedades);
-
   } catch (error) {
-    console.error('Error al acceder a la API real:', error);
+    console.error('Error al conectar con la API externa:', error);
     return res.status(500).json({ mensaje: 'Error al conectar con la API externa' });
   }
 };
