@@ -32,7 +32,8 @@ module.exports = async (req, res) => {
     return res.status(200).json(propiedades);
 
   } catch (error) {
-    console.error('Error al conectar con la API externa:', error);
-    return res.status(500).json({ mensaje: 'Error al conectar con la API externa' });
+    console.error('ERROR REAL:', error);  // 🔍 mostrará en logs lo que realmente pasa
+    return res.status(500).json({ mensaje: 'Error al conectar con la API externa', error: error.message });
   }
+
 };
